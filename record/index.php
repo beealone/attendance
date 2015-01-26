@@ -59,24 +59,21 @@
       </p>
 
       <div class="row">
-        <div class="col-xs-12 col-md-12">
+        <div class="col-xs-12 col-md-7">
 
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">Enter Attendance Data</h3>
             </div>
             <div class="panel-body">
+
               <form>
                 <div class="row">
-
                   <div class="col-xs-12 col-md-8">
-
-
-
                     <div class="form-group">
                       <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Service Date</span>
-                        <input type="text" class="form-control" placeholder="1/1/2015" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="e.g., 1/1/2015" aria-describedby="basic-addon1">
                       </div>
                     </div>
 
@@ -86,7 +83,7 @@
                         <?php
                         $servicetimes = DB::query("select * from attendance.servicetimes;");
                         foreach ($servicetimes as $row) {
-                          echo "<option>" . $row['ServiceTime'] . "</options>" .PHP_EOL;
+                          echo "<option>" . $row['ServiceTime'] . "</options>" . PHP_EOL;
                         }
                         ?>
                       </select>
@@ -98,7 +95,7 @@
                         <?php
                         $servicetimes = DB::query("select * from attendance.locations;");
                         foreach ($servicetimes as $row) {
-                          echo "<option>" . $row['Name'] . "</options>" .PHP_EOL;
+                          echo "<option>" . $row['Name'] . "</options>" . PHP_EOL;
                         }
                         ?>
                       </select>
@@ -123,22 +120,45 @@
               </form>
             </div>
           </div>
-
-
-
-
+        </div>
+        <div class="col-xs-12 col-md-5">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Add Service Location</h3>
+            </div>
+            <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">Name of Location</span>
+                  <input type="text" class="form-control" placeholder="e.g., City Name" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            </div>
           </div>
-
-
-
-
-
-
-
-
-
+        </div>
+        <div class="col-xs-12 col-md-5">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Add Service Time</h3>
+            </div>
+            <div class="panel-body">
+              <form>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Name of Service Time</span>
+                    <input type="text" class="form-control" placeholder="e.g., Wed, 7PM or Christmas 2015" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
     </div> <!-- Container -->
 
