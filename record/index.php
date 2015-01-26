@@ -1,8 +1,5 @@
 <?php
-  require_once '../meekrodb.2.3.class.php';
-  DB::$user = 'root';
-  DB::$password = 'root';
-  DB::$dbName = 'attendance';
+  include('../db-config.php');
 ?>
 
 <html>
@@ -56,63 +53,79 @@
       <div class="page-header">
         <h1>Attendance Tracking System</h1>
       </div>
-      <p class="lead">Record Attendance.</p>
+      <p class="lead">Record Attendance - BLAH BLAH BLAH</p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
 
       <div class="row">
         <div class="col-xs-12 col-md-12">
 
-          <form>
-            <div class="row">
-
-          <div class="col-xs-12 col-md-8">
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">Service Date</span>
-                <input type="text" class="form-control" placeholder="1/1/2015" aria-describedby="basic-addon1">
-              </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Enter Attendance Data</h3>
             </div>
+            <div class="panel-body">
+              <form>
+                <div class="row">
 
-            <div class="form-group">
-              <select class="form-control">
-               <option>Choose Service Time</option>
-              <?php
-                  $servicetimes = DB::query("select * from attendance.servicetimes;");
-                  foreach ($servicetimes as $row) {
-                    echo "<option>" . $row['ServiceTime'] . "</options>" .PHP_EOL;
-                  }
-              ?>
-              </select>
-            </div>
+                  <div class="col-xs-12 col-md-8">
 
-            <div class="form-group">
-              <select class="form-control">
-              <option>Choose Service Location</option>
-              <?php
-                  $servicetimes = DB::query("select * from attendance.locations;");
-                  foreach ($servicetimes as $row) {
-                    echo "<option>" . $row['Name'] . "</options>" .PHP_EOL;
-                  }
-              ?>
-              </select>
-            </div>
 
-            <div class="form-group">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon2">Number of Adults</span>
-              <input type="text" class="form-control" placeholder="0" aria-describedby="basic-addon2">
+
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Service Date</span>
+                        <input type="text" class="form-control" placeholder="1/1/2015" aria-describedby="basic-addon1">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Choose Service Time</option>
+                        <?php
+                        $servicetimes = DB::query("select * from attendance.servicetimes;");
+                        foreach ($servicetimes as $row) {
+                          echo "<option>" . $row['ServiceTime'] . "</options>" .PHP_EOL;
+                        }
+                        ?>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Choose Service Location</option>
+                        <?php
+                        $servicetimes = DB::query("select * from attendance.locations;");
+                        foreach ($servicetimes as $row) {
+                          echo "<option>" . $row['Name'] . "</options>" .PHP_EOL;
+                        }
+                        ?>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">Number of Adults</span>
+                        <input type="text" class="form-control" placeholder="0" aria-describedby="basic-addon2">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">Number of Children</span>
+                        <input type="text" class="form-control" placeholder="0" aria-describedby="basic-addon3">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">Number of Children</span>
-              <input type="text" class="form-control" placeholder="0" aria-describedby="basic-addon3">
-            </div>
-          </div>
-        </div>
-      </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-          </form>
+
+
 
           </div>
 
