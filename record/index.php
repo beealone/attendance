@@ -1,15 +1,16 @@
 <?php
-  include('../db-config.php');
+  require_once('../db-config.php');
+  require_once('../lib/vars.php');
 ?>
-
+<!DOCTYPE html>
 <html>
   <head>
     <title>Record Numbers</title>
     <script src="../js/jquery-2.1.3.min.js"></script>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $bootstrap ?>">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="<?php echo $bootstraptheme ?>">
     <link href="sticky-footer-navbar.css" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
@@ -21,7 +22,7 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -50,7 +51,7 @@
       <div class="page-header">
         <h1>Attendance Tracking System</h1>
       </div>
-      <p class="lead">Record Attendance - BLAH BLAH BLAH</p>
+      <!-- <p class="lead">Record Attendance - BLAH BLAH BLAH</p>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -59,7 +60,7 @@
         esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
         id est laborum.
-      </p>
+      </p> -->
 
       <div class="row">
         <div class="col-xs-12 col-md-7">
@@ -86,7 +87,7 @@
                         <?php
                         $servicetimes = DB::query("select * from attendance.servicetimes;");
                         foreach ($servicetimes as $row) {
-                          echo "<option>" . $row['ServiceTime'] . "</options>" . PHP_EOL;
+                          echo "<option id='" . $row['idServiceTime'] . "'>" . $row['ServiceTime'] . "</option>" . PHP_EOL;
                         }
                         ?>
                       </select>
@@ -98,7 +99,7 @@
                         <?php
                         $servicetimes = DB::query("select * from attendance.locations;");
                         foreach ($servicetimes as $row) {
-                          echo "<option>" . $row['Name'] . "</options>" . PHP_EOL;
+                          echo "<option id='" . $row['idLocation'] . "'>" . $row['Name'] . "</option>" . PHP_EOL;
                         }
                         ?>
                       </select>

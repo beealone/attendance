@@ -1,13 +1,15 @@
+<?php require_once('lib/vars.php') ?>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Event Attendance</title>
     <script src="js/jquery-2.1.3.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $bootstrap ?>">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="<?php echo $bootstraptheme ?>">
     <link href="sticky-footer-navbar.css" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -97,7 +99,7 @@
 
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
